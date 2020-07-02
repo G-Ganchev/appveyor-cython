@@ -1,5 +1,6 @@
-from distutils.core import Extension, setup
+from distutils.core import Extension #, setup
 from Cython.Build import cythonize
+from setuptools import setup
 
 # define an extension that will be cythonized and compiled
 ext = Extension(name="hello", sources=["hello.pyx"])
