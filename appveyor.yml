@@ -47,12 +47,12 @@ install:
   - echo "C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd" /x64 > "C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\amd64/vcvars64.bat"
 
   # Check that we have the expected version and architecture for Python
-  - python --version
-  - python -c "import struct; print(struct.calcsize('P') * 8)"
+  - "%PYTHON%\\python.exe  --version"
+  - '%PYTHON%\\python.exe  -c "import struct; print(struct.calcsize('P') * 8)"'
 
-  - python -m pip install --upgrade pip setuptools
+  - "%PYTHON%\\python.exe  -m pip install --upgrade pip setuptools"
   # Pin wheel to 0.26 to avoid Windows ABI tag for built wheel
-  - pip install wheel  # ==0.26
+  - "%PYTHON%\\Scripts\\pip.exe install wheel "  # ==0.26
 
 build_script:
   # Build and install the wheel
