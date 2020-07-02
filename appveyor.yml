@@ -34,7 +34,7 @@ environment:
 
 install:
   - cmd: echo "Using cmd"
-  - ps: install.ps1
+  - ps: .\install.ps1
   - "%PYTHON%\\python.exe --version"
   - "%PYTHON%\\Scripts\\pip.exe --version"
   - "%PYTHON%\\Scripts\\wheel.exe version"
