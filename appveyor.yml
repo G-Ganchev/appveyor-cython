@@ -48,7 +48,7 @@ install:
 
   # Check that we have the expected version and architecture for Python
   - "%PYTHON%\\python.exe  --version"
-  - "%PYTHON%\\python.exe  -c "/import struct; print(struct.calcsize('P') * 8)"/"
+  #- "%PYTHON%\\python.exe  -c "/import struct; print(struct.calcsize('P') * 8)"/"
 
   - "%PYTHON%\\python.exe  -m pip install --upgrade pip setuptools"
   # Pin wheel to 0.26 to avoid Windows ABI tag for built wheel
