@@ -34,6 +34,11 @@ environment:
 
 install:
   - cmd: echo "Using cmd"
+  - "powershell install.ps1"
+  - "%PYTHON%\\python.exe --version"
+  - "%PYTHON%\\Scripts\\pip.exe --version"
+  - "%PYTHON%\\Scripts\\wheel.exe version"
+
 
 
   # Fix MSVC builds for 64-bit Python
@@ -56,7 +61,7 @@ build_script:
   #- git checkout %BUILD_COMMIT%
   # Remove Bazel file that interferes with distutils
   #- del BUILD
-  - python setup.py bdist_wheel
+  - "%PYTHON%\\python.exe  setup.py bdist_wheel"
   #- ps: |
   #    # Upload artifact to Appveyor immediately after build
   #    ls dist -r | Foreach-Object {
@@ -69,7 +74,7 @@ test_script:
   #- ps: get-childitem Demos\*.pyx | foreach-object { cython $_ }
   #- set CFLAGS="/Od"
   #- "%WITH_ENV% %PYTHON%\\python.exe runtests.py -vv --no-cpp --no-code-style -j8"
-  - python runtests.py 
+  - "%PYTHON%\\python.exe runtests.py"
 
 after_test:
   # If tests are successful, create binary packages for the project.
