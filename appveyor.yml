@@ -56,26 +56,13 @@ install:
   - "%PYTHON%\\Scripts\\pip.exe install cython "  # ==0.26
 
 build_script:
-  # Build and install the wheel
-  #- cd cython
-  #- git fetch origin
-  #- git checkout %BUILD_COMMIT%
-  # Remove Bazel file that interferes with distutils
-  #- del BUILD
+
   - "%PYTHON%\\python.exe  setup.py build_ext --inplace"
   - "%PYTHON%\\python.exe  setup.py bdist_wheel"
-  #- ps: |
-  #    # Upload artifact to Appveyor immediately after build
-  #    ls dist -r | Foreach-Object {
-  #        appveyor PushArtifact $_.FullName
-  #    }
-  #- pip install --pre --no-index -f .\dist cython
+
 
 test_script:
-  # Run some tests
-  #- ps: get-childitem Demos\*.pyx | foreach-object { cython $_ }
-  #- set CFLAGS="/Od"
-  #- "%WITH_ENV% %PYTHON%\\python.exe runtests.py -vv --no-cpp --no-code-style -j8"
+
   - "%PYTHON%\\python.exe test.py"
 
 after_test:
