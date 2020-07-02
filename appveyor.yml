@@ -76,7 +76,7 @@ test_script:
   #- ps: get-childitem Demos\*.pyx | foreach-object { cython $_ }
   #- set CFLAGS="/Od"
   #- "%WITH_ENV% %PYTHON%\\python.exe runtests.py -vv --no-cpp --no-code-style -j8"
-  - "%PYTHON%\\python.exe runtests.py"
+  - "%PYTHON%\\python.exe test.py"
 
 after_test:
   # If tests are successful, create binary packages for the project.
